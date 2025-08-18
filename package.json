@@ -1,17 +1,13 @@
 {
-  "name": "minecraft-bot",
+  "name": "minecraft-admin-bots",
   "version": "1.0.0",
-  "description": "Smart Minecraft Bot",
-  "main": "index.js",
+  "main": "index/smpBots.js",
   "scripts": {
-    "start": "node index.js"
+    "start:smp": "node index/smpBots.js",
+    "start:mg": "node index/minigamesBots.js"
   },
   "dependencies": {
-    "mineflayer": "4.16.0",
-    "mineflayer-pathfinder": "1.9.0",
-    "mineflayer-collectblock": "1.3.0",
-    "mineflayer-pvp": "1.3.0",
-    "minecraft-data": "3.66.0",
-    "express": "4.19.2"
+    "mineflayer": "^4.14.0",
+    "dotenv": "^16.0.3"
   }
 }
