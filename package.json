@@ -1,13 +1,11 @@
 {
-  "name": "minecraft-admin-bots",
+  "name": "mc-bots",
   "version": "1.0.0",
-  "main": "index/smpBots.js",
+  "main": "index.js",
   "scripts": {
-    "start:smp": "node index/smpBots.js",
-    "start:mg": "node index/minigamesBots.js"
+    "start": "node index.js"
   },
   "dependencies": {
-    "mineflayer": "^4.14.0",
-    "dotenv": "^16.0.3"
+    "mineflayer": "^4.20.1"
   }
 }
