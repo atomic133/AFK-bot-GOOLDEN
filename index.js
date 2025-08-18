@@ -1,47 +1,42 @@
-const mineflayer = require("mineflayer");
+const mineflayer = require('mineflayer')
 
-// 🎮 بيانات السيرفر
-const host = "GOOLDENs2.aternos.me"; // غيرها لو سيرفرك اختلف
-const port = 56511;
+// بيانات السيرفر
+const host = "GOOLDENs2.aternos.me"
+const port = 56511
 
-// 📌 لستة بوتات SMP (Admins)
-const smpBots = [
-  { username: "SMP_Admin1" },
-  { username: "SMP_Admin2" },
-  { username: "SMP_Admin3" }
-];
+// لستة البوتات (اسم + نوع)
+const bots = [
+  { username: "SMB_Admin1", type: "smp" },
+  { username: "SMB_Admin2", type: "smp" },
+  { username: "SMB_Admin3", type: "smp" },
+  { username: "MG_Admin1", type: "minigame" },
+  { username: "MG_Admin2", type: "minigame" },
+  { username: "MG_Admin3", type: "minigame" }
+]
 
-// 📌 لستة بوتات Minigames
-const mgBots = [
-  { username: "MG_Admin1" },
-  { username: "MG_Admin2" },
-  { username: "MG_Admin3" }
-];
-
-// 📌 دالة تشغيل البوت
-function createBot({ username }) {
+// تشغيل البوت
+function createBot(botInfo) {
   const bot = mineflayer.createBot({
-    host,
-    port,
-    username,
-  });
+    host: host,
+    port: port,
+    username: botInfo.username,
+    version: "1.20.6" // مهم جداً علشان يتماشى مع السيرفر
+  })
 
-  bot.on("login", () => {
-    console.log(`[✅] ${username} دخل السيرفر`);
-  });
+  bot.once('spawn', () => {
+    console.log(`[✅] ${botInfo.username} دخل السيرفر (${botInfo.type})`)
+    bot.chat("/login yourPassword") // لو عندك بلجن AuthMe حط الباسورد هنا
+  })
 
-  bot.on("end", () => {
-    console.log(`[⚠️] ${username} خرج. بيحاول يرجع...`);
-    setTimeout(() => createBot({ username }), 5000); // يحاول يرجع بعد 5 ثواني
-  });
+  bot.on('end', () => {
+    console.log(`[⚠️] ${botInfo.username} خرج، بيعيد الدخول...`)
+    setTimeout(() => createBot(botInfo), 5000) // إعادة دخول بعد 5 ثواني
+  })
 
-  bot.on("error", (err) => {
-    console.log(`[❌] ${username} Error: ${err.message}`);
-  });
+  bot.on('error', err => {
+    console.log(`[❌] ${botInfo.username} Error:`, err.message)
+  })
 }
 
-// 🚀 شغل بوتات SMP
-smpBots.forEach(botInfo => createBot(botInfo));
-
-// 🚀 شغل بوتات Minigames
-mgBots.forEach(botInfo => createBot(botInfo));
+// إنشاء كل البوتات
+bots.forEach(botInfo => createBot(botInfo))
