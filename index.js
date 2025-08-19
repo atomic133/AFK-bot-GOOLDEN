@@ -2,7 +2,7 @@ const mineflayer = require('mineflayer')
 
 // بيانات السيرفر
 const host = "GOOLDENS2-YVzp.aternos.me"
-const port = 19132
+const port = 19629
 
 // لستة البوتات (اسم + نوع)
 const bots = [
