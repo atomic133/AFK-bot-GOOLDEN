@@ -1,17 +1,14 @@
 const mineflayer = require('mineflayer')
 
 // بيانات السيرفر
-const host = "GOOLDENS2-YVzp.aternos.me"
-const port = 19629
+const host = "GOLDEN-u8nn.aternos.me"
+const port = 23761
 
-// لستة البوتات (اسم + نوع)
+// لستة البوتات (SMP فقط)
 const bots = [
   { username: "SMB_Admin1", type: "smp" },
   { username: "SMB_Admin2", type: "smp" },
-  { username: "SMB_Admin3", type: "smp" },
-  { username: "MG_Admin1", type: "minigame" },
-  { username: "MG_Admin2", type: "minigame" },
-  { username: "MG_Admin3", type: "minigame" }
+  { username: "SMB_Admin3", type: "smp" }
 ]
 
 // تشغيل البوت
