@@ -1,8 +1,8 @@
 const mineflayer = require('mineflayer')
 
 // بيانات السيرفر
-const host = "GOOLDENs2.aternos.me"
-const port = 56511
+const host = "GOOLDENS2-YVzp.aternos.me"
+const port = 19132
 
 // لستة البوتات (اسم + نوع)
 const bots = [
